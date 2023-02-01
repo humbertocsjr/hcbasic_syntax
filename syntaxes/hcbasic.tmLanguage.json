@@ -1,0 +1,130 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "HCBasic",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#chars"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#support"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": 
+			[
+				{
+					"name": "keyword.control.hcbasic",
+					"match": "(?i)\\b(structure|if|then|else|while|for|to|return|end|dim|try|catch|module|error|throw|sub|function|imports|asm|goto|spacing)\\b"
+				},
+				{
+					"name": "keyword.operator.hcbasic",
+					"match": "(?i)\\b(or|and|orelse|andalso|mod|xor|as)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.hcbasic",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.hcbasic",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.hcbasic"
+						}
+					},
+					"match": "(').*$\\n?",
+					"name": "comment.line.hcbasic"
+				}
+			]
+		},
+		"support": {
+			"patterns": [
+				{
+					"match": "(?i)\\b(public|private|pointer|handles|interrupt)\\b",
+					"name": "storage.modifier.hcbasic"
+				},
+				{
+					"match": "(?i)\\b(int8|uint8|int16|uint16|string|ptrbytearray|ptrwordarray)\\b",
+					"name": "storage.type.hcbasic"
+				},
+				{
+					"match": "(?i)\\b(error|divbyzeroerror|outofmemoryerror|stackoverflowerror|outofboundserror|notfounderror|alreadyexistserror|notimplementederror|unknownerror|capacityoverflowerror|noanswererror|timeouterror|invalidvalueerror|accessdeniederror|invalidformaterror)\\b",
+					"name": "storage.type.hcbasic"
+				},
+				{
+					"match": "(?i)\\b(addressof|sizeof|errorfile|errorline)\\b",
+					"name": "support.function.hcbasic"
+				},
+		        {
+			        "match": "(?i)(?<=as )(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)",
+			        "name": "support.type.hcbasic"
+		        },
+		        {
+		            "captures": {
+				        "1": {
+					        "name": "entity.name.function.hcbasic"
+				        }
+			        },
+			        "match": "(?i)(?<=function )(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)",
+			        "name": "support.function.hcbasic"
+		        },
+		        {
+		            "captures": {
+				        "1": {
+					        "name": "entity.name.function.hcbasic"
+				        }
+			        },
+			        "match": "(?i)(?<=sub )(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)",
+			        "name": "support.function.hcbasic"
+		        },
+		        {
+		            "captures": {
+				        "1": {
+					        "name": "entity.name.type.hcbasic"
+				        }
+			        },
+			        "match": "(?i)(?<=module )(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)",
+			        "name": "support.class.hcbasic"
+		        },
+		        {
+		            "captures": {
+				        "1": {
+					        "name": "entity.name.type.hcbasic"
+				        }
+			        },
+			        "match": "(?i)(?<=structure )(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*?\\b)",
+			        "name": "support.class.hcbasic"
+		        },
+		        {
+		            "captures": {
+				        "1": {
+					        "name": "variable.other.hcbasic"
+				        }
+			        },
+			        "match": "(?i)(\\b[a-zA-Z_x7f-xff][a-zA-Z0-9_x7f-xff]*(?= as )\\b)",
+			        "name": "variable.other.hcbasic"
+		        }
+			]
+		}
+	},
+	"scopeName": "source.hcbasic"
+}
