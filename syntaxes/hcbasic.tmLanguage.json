@@ -24,7 +24,7 @@
 			[
 				{
 					"name": "keyword.control.hcbasic",
-					"match": "(?i)\\b(structure|if|then|else|elseif|while|for|to|return|end|dim|try|catch|module|error|throw|sub|function|imports|asm|goto|spacing)\\b"
+					"match": "(?i)\\b(structure|if|then|else|elseif|while|for|to|return|end|dim|try|catch|module|error|throw|sub|function|imports|asm|goto|spacing|from)\\b"
 				},
 				{
 					"name": "keyword.operator.hcbasic",
